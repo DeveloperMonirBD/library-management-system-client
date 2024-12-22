@@ -1,19 +1,18 @@
-### Assignment Category: 003
+### Assignment Category: 08
 
-# Lingo Bingo : A Vocabulary Learning Application
-
-# Vocabulary Pronunciation
+# Library Management System : A Library Management Application
 
 ## Overview
 
-Vocabulary Pronunciation is a web application designed to enhance language learning by providing users with the ability to hear the pronunciation of vocabulary words. Users can click on vocabulary
-cards to listen to the pronunciation and view additional information about each word. This project utilizes the Web Speech API for text-to-speech functionality.
+A well-renowned school requires the development of a Library Management System, accessible via a website. The system should allow the addition and categorization of books in their collection, with the
+ability to update book information. It should also support tracking of borrowed and returned books, ensuring efficient management of all transactions. The website should offer a user-friendly
+interface for users, facilitating smooth operations and easy access to the library's resources.
 
 ## Features
 
--   **Interactive Vocabulary Cards**: Click on vocabulary cards to hear the pronunciation.
--   **Language Support**: Currently supports Spanish pronunciation (requires Spanish language pack).
--   **Detailed Vocabulary Information**: Provides pronunciation, meaning, part of speech, usage, and examples.
+-   \*\*Book Addition and Categorization: Easily add new books and categorize them.
+-   \*\*User-Friendly Interface: Intuitive and responsive design for a smooth user experience.
+-   \*\*Secure Authentication: Email and password-based authentication with social login options.
 -   **Responsive Design**: Mobile-friendly interface using Tailwind CSS for styling.
 
 ## Technologies Used
@@ -26,14 +25,11 @@ Explore the world of cutting-edge technology with Gadget Heaven and find the per
 
 ## 12 key features of the project
 
-    -   Interactive Vocabulary Cards
-    -   Detailed Vocabulary Information
+    -   Detailed Book Information
     -   Responsive Design
-    -   Pronunciation on Demand
     -   Modal for In-Depth Details
     -   Smooth Animations
     -   Easy Navigation
-    -   Language Support
     -   Promise Return
     -   Cleaner Syntax
     -   Error Handling
@@ -42,11 +38,9 @@ Explore the world of cutting-edge technology with Gadget Heaven and find the per
 ## Dependencies
 
     -   firebase
-    -   flowbite-react
+    -   react-swiper
     -   framer-motion
-    -   react-countup
     -   react-icons
-    -   react-player
     -   daisyui
     -   React-Toastify
     -   Arrow function
@@ -63,7 +57,7 @@ Explore the world of cutting-edge technology with Gadget Heaven and find the per
 
 ### Installation
 
-1. Clone the repository: `bash git clone https://github.com/programming-hero-web-course1/b10-a9-authentication-DeveloperMonirBD.git cd b10-a9-authentication `
+1. Clone the repository: `bash git clone https://github.com/programming-hero-web-course2/b10a11-client-side-DeveloperMonirBD.git cd b10a11-client-side `
 
 2. Install the dependencies: `bash npm install `
 
@@ -73,30 +67,10 @@ Explore the world of cutting-edge technology with Gadget Heaven and find the per
 
 4. Open your browser and navigate to
 
-`https://lingo-bingo12.netlify.app/` to view the application.
-
-## Usage
-
-1. **Lesson Page**:
-
--   Navigate to the lesson page to see a grid of vocabulary cards.
--   Click on a vocabulary card to hear the pronunciation.
--   Click the "When to say" button to open a modal with detailed information.
-
-2. **Vocabulary Pronunciation**:
-
--   Click on any vocabulary card to hear the word pronounced.
--   Uses the Web Speech API to convert text to speech.
-
-## Code Structure
-
--   **LessonPage.js**: Main component that displays vocabulary cards and handles pronunciation and modals.
--   **VocabularyPronunciation.js**: Component that contains the interactive vocabulary cards.
--   **variants.js**: Contains animation variants for Framer Motion.
--   **vocabularies.json**: Contains the vocabulary data.
+`....` to view the application.
 
 ## What to Submit
 
--   Private Github Repo Link : https://github.com/programming-hero-web-course1/b10-a9-authentication-DeveloperMonirBD
+-   Private Github Repo Link : https://github.com/programming-hero-web-course2/b10a11-client-side-DeveloperMonirBD
 
--   Live link to the deployed project : https://lingo-bingo-a69cd.web.app/
+-   Live link to the deployed project :
