@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import toast from 'react-hot-toast';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const UpdateBook = () => {
@@ -36,7 +37,8 @@ const UpdateBook = () => {
         e.preventDefault();
         try {
             await axios.put(`${import.meta.env.VITE_API_URL}/books/${id}`, book);
-            navigate('/all-books');
+            toast.success('Updated successfully')
+            navigate('/allBooks');
         } catch (error) {
             console.error('Error updating book:', error);
         }
