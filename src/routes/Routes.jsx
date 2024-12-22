@@ -10,7 +10,11 @@ import PrivetRoute from './PrivetRoute';
 import MyProfile from '../pages/MyProfile';
 
 import ProfileUpdate from '../pages/ProfileUpdate';
-import AllVisas from '../pages/AllVisas';
+import AllBooks from '../pages/AllBooks';
+import AddBook from '../pages/AddBook';
+import BorrowedBooks from '../pages/BorrowedBooks';
+import UpdateBook from '../pages/UpdateBook';
+
 
 const routes = createBrowserRouter([
     {
@@ -23,10 +27,34 @@ const routes = createBrowserRouter([
                 element: <Home />
             },
             {
-                path: '/allVisas',
+                path: '/allBooks',
                 element: (
                     <PrivetRoute>
-                        <AllVisas />
+                        <AllBooks />
+                    </PrivetRoute>
+                )
+            },
+            {
+                path: '/update-book/:id',
+                element: (
+                    <PrivetRoute>
+                        <UpdateBook />
+                    </PrivetRoute>
+                )
+            },
+            {
+                path: '/addBook',
+                element: (
+                    <PrivetRoute>
+                        <AddBook />
+                    </PrivetRoute>
+                )
+            },
+            {
+                path: '/borrowedBooks',
+                element: (
+                    <PrivetRoute>
+                        <BorrowedBooks />
                     </PrivetRoute>
                 )
             },
