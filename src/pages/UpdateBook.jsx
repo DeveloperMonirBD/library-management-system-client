@@ -81,7 +81,7 @@ const UpdateBook = () => {
                     <textarea name="shortDescription" value={book.shortDescription} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm" />
                 </div>
                 <div>
-                    <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    <button type="submit" className="bg-brandPrimary text-white px-4 py-2 rounded hover:bg-brandSecondary">
                         Submit
                     </button>
                 </div>

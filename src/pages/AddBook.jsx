@@ -1,8 +1,9 @@
 
+
 const AddBook = () => {
     return (
         <div>
-            Add Book Page
+            Add Book page
         </div>
     );
 };
