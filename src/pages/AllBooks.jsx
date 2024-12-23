@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import BookCard from '../components/BookCard';
 import { useNavigate } from 'react-router-dom';
+import BookCard from '../components/BookCard';
 
 const AllBooks = () => {
     const [books, setBooks] = useState([]);
@@ -39,7 +39,7 @@ const AllBooks = () => {
     return (
         <div className="container mx-auto px-4 py-8">
             <h1 className="text-2xl font-bold mb-6">All Books</h1>
-            <div className='flex justify-between'>
+            <div className="flex justify-between">
                 <button onClick={toggleShowAvailable} className="mb-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
                     {showAvailable ? 'Show All Books' : 'Show Available Books'}
                 </button>

@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const UpdateBook = () => {
     const { id } = useParams();
@@ -17,17 +17,16 @@ const UpdateBook = () => {
     });
 
     useEffect(() => {
+        const fetchBookDetails = async () => {
+            try {
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/books/${id}`);
+                setBook(response.data);
+            } catch (error) {
+                console.error('Error fetching book details:', error);
+            }
+        };
         fetchBookDetails();
     }, [id]);
-
-    const fetchBookDetails = async () => {
-        try {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/books/${id}`);
-            setBook(data);
-        } catch (error) {
-            console.error('Error fetching book details:', error);
-        }
-    };
 
     const handleChange = e => {
         setBook({ ...book, [e.target.name]: e.target.value });
@@ -37,7 +36,7 @@ const UpdateBook = () => {
         e.preventDefault();
         try {
             await axios.put(`${import.meta.env.VITE_API_URL}/books/${id}`, book);
-            toast.success('Updated successfully')
+            toast.success('Updated successfully');
             navigate('/allBooks');
         } catch (error) {
             console.error('Error updating book:', error);
@@ -76,7 +75,7 @@ const UpdateBook = () => {
                 </div>
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Rating</label>
-                    <input type="number" name="rating" value={book.rating} onChange={handleChange} min="1" max="5" className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm" />
+                    <input type="number" name="rating" value={book.rating} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm" />
                 </div>
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Short Description</label>
