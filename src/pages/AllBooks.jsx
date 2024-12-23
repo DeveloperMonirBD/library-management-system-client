@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import ReactStars from 'react-rating-stars-component';
 import { useNavigate } from 'react-router-dom';
 import BookCard from '../components/BookCard';
 
@@ -83,8 +84,8 @@ const AllBooks = () => {
                                     <td className="py-2">{book.category}</td>
                                     <td className="py-2">{book.quantity}</td>
                                     <td className="py-2">
-                                        {'⭐'.repeat(book.rating)}
-                                        {'☆'.repeat(5 - book.rating)}
+                                        <ReactStars count={5} value={book.rating} size={24} activeColor="#ffd700" edit={false} isHalf={true} />
+                                        {/* <span className="ml-2 text-sm">{book.rating} / 5</span> */}
                                     </td>
                                     <td className="py-2">
                                         <button onClick={() => handleUpdateClick(book._id)} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
