@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactStars from 'react-rating-stars-component';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ const BookList = () => {
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const response = await axios.get(`${import.meta.env.VITE_API_URL}/books?category=${category}`);
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/categoryBook?category=${category}`);
                 setBooks(response.data);
                 setLoading(false);
             } catch (error) {
