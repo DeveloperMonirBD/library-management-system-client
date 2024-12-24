@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
+import PageTitle from '../components/PageTitle';
 
 const UpdateBook = () => {
     const { id } = useParams();
@@ -45,6 +46,10 @@ const UpdateBook = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
+
+            {/* Setup Page-Title by react Helmet */}
+            <PageTitle title="UpdateBook" />
+
             <h1 className="text-2xl font-bold mb-6">Update Book</h1>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>

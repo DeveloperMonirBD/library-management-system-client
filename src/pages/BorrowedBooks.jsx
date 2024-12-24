@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../provider/AuthProvider';
+import PageTitle from '../components/PageTitle';
 
 const BorrowedBooks = () => {
     const { user } = useContext(AuthContext);
@@ -47,6 +48,10 @@ const BorrowedBooks = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
+
+            {/* Setup Page-Title by react Helmet */}
+            <PageTitle title="BorrowedBooks" />
+
             <h1 className="text-3xl font-bold mb-4">My Borrowed Books</h1>
             {borrowedBooks.length === 0 ? (
                 <p>No borrowed books</p>

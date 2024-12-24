@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import ReactStars from 'react-rating-stars-component';
 import { useNavigate } from 'react-router-dom';
 import BookCard from '../components/BookCard';
+import PageTitle from '../components/PageTitle';
 
 const AllBooks = () => {
     const [books, setBooks] = useState([]);
@@ -39,6 +40,10 @@ const AllBooks = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
+
+            {/* Setup Page-Title by react Helmet */}
+            <PageTitle title="AllBooks" />
+
             <h1 className="text-2xl font-bold mb-6">All Books</h1>
             <div className="flex justify-between">
                 <button onClick={toggleShowAvailable} className="mb-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
@@ -52,7 +57,6 @@ const AllBooks = () => {
                     </select>
                 </div>
             </div>
-
             {view === 'card' ? (
                 <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {filteredBooks.map(book => (

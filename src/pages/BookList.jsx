@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ReactStars from 'react-rating-stars-component';
 import { useNavigate, useParams } from 'react-router-dom';
+import PageTitle from '../components/PageTitle';
 
 const BookList = () => {
     const { category } = useParams();
@@ -29,6 +30,10 @@ const BookList = () => {
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+            {/* Setup Page-Title by react Helmet */}
+            <PageTitle title="BookList" />
+
             {books.map(book => (
                 <div key={book._id} className="border rounded shadow-md p-4">
                     <img src={book.image} alt={book.name} className="h-48 w-full object-cover" />

@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import userIcon from '../assets/user.png';
 import { Link } from 'react-router-dom';
+import PageTitle from '../components/PageTitle';
 
 const MyProfile = () => {
     const { user } = useContext(AuthContext);
@@ -19,6 +20,10 @@ const MyProfile = () => {
                 whileInView={'show'}
                 viewport={{ once: false, amount: 0.7 }}
                 className="text-brandPrimary text-3xl font-bold text-center mb-10 mt-10">
+                
+                {/* Setup Page-Title by react Helmet */}
+                <PageTitle title="MyProfile" />
+
                 <span className="text-gray-900">"Welcome To</span> My Profile"
             </motion.div>
             <motion.div

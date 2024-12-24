@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 
 import toast from 'react-hot-toast';
 import { AuthContext } from '../provider/AuthProvider';
+import PageTitle from '../components/PageTitle';
 
 const BookDetails = () => {
     const { id } = useParams();
@@ -88,6 +89,9 @@ const BookDetails = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
+            {/* Setup Page-Title by react Helmet */}
+            <PageTitle title="BookDetails" />
+
             <div className="flex flex-col md:flex-row items-center md:items-start">
                 <img src={book.image} alt={book.name} className="h-64 w-64 object-cover rounded-md shadow-md" />
                 <div className="md:ml-8 mt-4 md:mt-0">
@@ -126,6 +130,10 @@ const BookDetails = () => {
 
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} contentLabel="Borrow Book">
                 <div className="mt-12 md:max-w-[500px] mx-auto md:shadow-lg md:px-10 py-20">
+
+                    {/* Setup Page-Title by react Helmet */}
+                    <PageTitle title="BorrowBook" />
+
                     <h2 className="text-3xl md:text-4xl mb-10 flex justify-center font-bold">Borrow Book</h2>
                     <form
                         className="form-control"

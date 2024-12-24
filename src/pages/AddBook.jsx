@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import PageTitle from '../components/PageTitle';
 
 const AddBook = () => {
     const { user } = useContext(AuthContext);
@@ -36,6 +37,10 @@ const AddBook = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
+
+            {/* setup Page-Title by react Helmet */}
+            <PageTitle title="AddBook" />
+
             <h1 className="text-2xl font-bold mb-6">Add Book</h1>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
