@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import PageTitle from '../components/PageTitle';
@@ -6,7 +5,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const BorrowedBooks = () => {
-    const axiosSecure = useAxiosSecure()
+    const axiosSecure = useAxiosSecure();
     const { user } = useContext(AuthContext);
     const [borrowedBooks, setBorrowedBooks] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -22,7 +21,7 @@ const BorrowedBooks = () => {
                 setLoading(false);
             }
         };
-
+        
         fetchBorrowedBooks();
     }, [user.email]);
 
