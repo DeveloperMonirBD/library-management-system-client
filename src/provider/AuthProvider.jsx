@@ -1,7 +1,6 @@
-/* eslint-disable react-refresh/only-export-components */
-/* eslint-disable react/prop-types */
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 
+import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
 
@@ -12,17 +11,15 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-
     const createNewUser = (email, password) => {
         setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password)
+        return createUserWithEmailAndPassword(auth, email, password);
     };
-    
 
     const userLogin = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
-    };    
+    };
 
     const logOut = () => {
         setLoading(true);
@@ -41,12 +38,24 @@ const AuthProvider = ({ children }) => {
         logOut,
         loading,
         updateUserProfile,
-        auth,
+        auth
     };
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+        const unsubscribe = onAuthStateChanged(auth, async currentUser => {
             setUser(currentUser);
+
+            if (currentUser?.email) {
+                await axios.post(
+                    `${import.meta.env.VITE_API_URL}/jwt`,
+                    {
+                        email: currentUser?.email
+                    },
+                    { withCredentials: true }
+                );
+            } else {
+                await axios.get(`${import.meta.env.VITE_API_URL}/logout`, { withCredentials: true });
+            }
             setLoading(false);
         });
         return () => {

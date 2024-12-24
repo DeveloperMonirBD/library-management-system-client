@@ -1,14 +1,15 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ReactStars from 'react-rating-stars-component';
 import { useNavigate } from 'react-router-dom';
 import BookCard from '../components/BookCard';
 import PageTitle from '../components/PageTitle';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const AllBooks = () => {
+    const axiosSecure = useAxiosSecure();
     const [books, setBooks] = useState([]);
     const [showAvailable, setShowAvailable] = useState(false);
-    const [view, setView] = useState('card'); // Default view is Card View
+    const [view, setView] = useState('card');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -17,7 +18,7 @@ const AllBooks = () => {
 
     const fetchAllBooks = async () => {
         try {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/books`);
+            const { data } = await axiosSecure.get(`/books`);
             setBooks(data);
         } catch (error) {
             console.error('Error fetching books:', error);

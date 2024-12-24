@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const categories = ['Novel', 'Thriller', 'History', 'Sci-Fi'];
 
 const BookCategories = () => {
+    const axiosSecure = useAxiosSecure();
     const [categoryData, setCategoryData] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get(`${import.meta.env.VITE_API_URL}/books`);
+                const response = await axiosSecure.get(`/books`);
                 const books = response.data;
                 const categoryImages = categories.map(category => {
                     const book = books.find(book => book.category === category);

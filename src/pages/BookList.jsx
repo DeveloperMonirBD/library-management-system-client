@@ -1,10 +1,11 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ReactStars from 'react-rating-stars-component';
 import { useNavigate, useParams } from 'react-router-dom';
 import PageTitle from '../components/PageTitle';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const BookList = () => {
+    const axiosSecure = useAxiosSecure();
     const { category } = useParams();
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -13,7 +14,7 @@ const BookList = () => {
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const response = await axios.get(`${import.meta.env.VITE_API_URL}/categoryBook?category=${category}`);
+                const response = await axiosSecure.get(`/categoryBook?category=${category}`);
                 setBooks(response.data);
                 setLoading(false);
             } catch (error) {
@@ -30,7 +31,6 @@ const BookList = () => {
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-
             {/* Setup Page-Title by react Helmet */}
             <PageTitle title="BookList" />
 

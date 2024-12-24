@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { AuthContext } from '../provider/AuthProvider';
 import PageTitle from '../components/PageTitle';
+import { AuthContext } from '../provider/AuthProvider';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const BorrowedBooks = () => {
+    const axiosSecure = useAxiosSecure()
     const { user } = useContext(AuthContext);
     const [borrowedBooks, setBorrowedBooks] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -12,7 +14,7 @@ const BorrowedBooks = () => {
     useEffect(() => {
         const fetchBorrowedBooks = async () => {
             try {
-                const response = await axios.get(`${import.meta.env.VITE_API_URL}/borrow/${user.email}`);
+                const response = await axiosSecure.get(`/borrow/${user.email}`);
                 setBorrowedBooks(response.data);
                 setLoading(false);
             } catch (error) {
@@ -28,7 +30,7 @@ const BorrowedBooks = () => {
         console.log(`Returning book with ID: ${bookId} for user: ${user.uid}`);
 
         try {
-            await axios.delete(`${import.meta.env.VITE_API_URL}/return`, {
+            await axiosSecure.delete(`/return`, {
                 data: {
                     bookId,
                     userId: user.uid
@@ -48,7 +50,6 @@ const BorrowedBooks = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-
             {/* Setup Page-Title by react Helmet */}
             <PageTitle title="BorrowedBooks" />
 

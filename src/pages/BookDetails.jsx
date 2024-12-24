@@ -1,14 +1,15 @@
-import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
 
 import toast from 'react-hot-toast';
-import { AuthContext } from '../provider/AuthProvider';
 import PageTitle from '../components/PageTitle';
+import useAxiosSecure from '../hooks/useAxiosSecure';
+import { AuthContext } from '../provider/AuthProvider';
 
 const BookDetails = () => {
+    const axiosSecure = useAxiosSecure();
     const { id } = useParams();
     const { user } = useContext(AuthContext);
     const [book, setBook] = useState(null);
@@ -20,7 +21,7 @@ const BookDetails = () => {
     useEffect(() => {
         const fetchBookDetails = async () => {
             try {
-                const response = await axios.get(`${import.meta.env.VITE_API_URL}/books/${id}`);
+                const response = await axiosSecure.get(`/books/${id}`);
                 setBook(response.data);
                 setLoading(false);
                 checkIfAlreadyBorrowed(response.data._id);
@@ -32,7 +33,7 @@ const BookDetails = () => {
 
         const checkIfAlreadyBorrowed = async bookId => {
             try {
-                const response = await axios.get(`${import.meta.env.VITE_API_URL}/borrowedBooks`, {
+                const response = await axiosSecure.get(`/borrowedBooks`, {
                     params: {
                         bookId: bookId,
                         userId: user.uid
@@ -54,7 +55,7 @@ const BookDetails = () => {
         }
 
         try {
-            await axios.post(`${import.meta.env.VITE_API_URL}/borrow`, {
+            await axiosSecure.post(`/borrow`, {
                 bookId: book._id,
                 userId: user.uid,
                 returnDate,
@@ -130,7 +131,6 @@ const BookDetails = () => {
 
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} contentLabel="Borrow Book">
                 <div className="mt-12 md:max-w-[500px] mx-auto md:shadow-lg md:px-10 py-20">
-
                     {/* Setup Page-Title by react Helmet */}
                     <PageTitle title="BorrowBook" />
 

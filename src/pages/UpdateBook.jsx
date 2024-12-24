@@ -1,10 +1,11 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 import PageTitle from '../components/PageTitle';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const UpdateBook = () => {
+    const axiosSecure = useAxiosSecure();
     const { id } = useParams();
     const navigate = useNavigate();
     const [book, setBook] = useState({
@@ -20,7 +21,7 @@ const UpdateBook = () => {
     useEffect(() => {
         const fetchBookDetails = async () => {
             try {
-                const response = await axios.get(`${import.meta.env.VITE_API_URL}/books/${id}`);
+                const response = await axiosSecure.get(`/books/${id}`);
                 setBook(response.data);
             } catch (error) {
                 console.error('Error fetching book details:', error);
@@ -36,7 +37,7 @@ const UpdateBook = () => {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            await axios.put(`${import.meta.env.VITE_API_URL}/books/${id}`, book);
+            await axiosSecure.put(`/books/${id}`, book);
             toast.success('Updated successfully');
             navigate('/allBooks');
         } catch (error) {
@@ -46,7 +47,6 @@ const UpdateBook = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-
             {/* Setup Page-Title by react Helmet */}
             <PageTitle title="UpdateBook" />
 

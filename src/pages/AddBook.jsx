@@ -1,11 +1,12 @@
-import axios from 'axios';
 import { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../provider/AuthProvider';
 import PageTitle from '../components/PageTitle';
+import useAxiosSecure from '../hooks/useAxiosSecure';
+import { AuthContext } from '../provider/AuthProvider';
 
 const AddBook = () => {
+    const axiosSecure = useAxiosSecure();
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const [book, setBook] = useState({
@@ -26,7 +27,7 @@ const AddBook = () => {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            await axios.post(`${import.meta.env.VITE_API_URL}/books`, book);
+            await axiosSecure.post(`/books`, book);
             toast.success('Book added successfully!');
             navigate('/allBooks');
         } catch (error) {
@@ -37,7 +38,6 @@ const AddBook = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-
             {/* setup Page-Title by react Helmet */}
             <PageTitle title="AddBook" />
 
