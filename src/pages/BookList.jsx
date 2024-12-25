@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 import ReactStars from 'react-rating-stars-component';
 import { useNavigate, useParams } from 'react-router-dom';
 import PageTitle from '../components/PageTitle';
-import useAxiosSecure from '../hooks/useAxiosSecure';
+import axios from 'axios';
 
 const BookList = () => {
-    const axiosSecure = useAxiosSecure();
     const { category } = useParams();
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -14,7 +13,7 @@ const BookList = () => {
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const response = await axiosSecure.get(`/categoryBook?category=${category}`);
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/categoryBook?category=${category}`);
                 setBooks(response.data);
                 setLoading(false);
             } catch (error) {

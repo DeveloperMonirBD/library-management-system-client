@@ -3,13 +3,12 @@ import Modal from 'react-modal';
 import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
 
+import axios from 'axios';
 import toast from 'react-hot-toast';
 import PageTitle from '../components/PageTitle';
-import useAxiosSecure from '../hooks/useAxiosSecure';
 import { AuthContext } from '../provider/AuthProvider';
 
 const BookDetails = () => {
-    const axiosSecure = useAxiosSecure();
     const { id } = useParams();
     const { user } = useContext(AuthContext);
     const [book, setBook] = useState(null);
@@ -21,7 +20,7 @@ const BookDetails = () => {
     useEffect(() => {
         const fetchBookDetails = async () => {
             try {
-                const response = await axiosSecure.get(`/books/${id}`);
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/books/${id}`);
                 setBook(response.data);
                 setLoading(false);
                 checkIfAlreadyBorrowed(response.data._id);
@@ -33,7 +32,7 @@ const BookDetails = () => {
 
         const checkIfAlreadyBorrowed = async bookId => {
             try {
-                const response = await axiosSecure.get(`/borrowedBooks`, {
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/borrowedBooks`, {
                     params: {
                         bookId: bookId,
                         userId: user.uid
@@ -55,7 +54,7 @@ const BookDetails = () => {
         }
 
         try {
-            await axiosSecure.post(`/borrow`, {
+            await axios.post(`${import.meta.env.VITE_API_URL}/borrow`, {
                 bookId: book._id,
                 userId: user.uid,
                 returnDate,
