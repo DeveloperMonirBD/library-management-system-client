@@ -33,7 +33,7 @@ const BookDetails = () => {
         fetchBookDetails();
     }, [id, user.uid]);
 
-    // find data from borrowedBook collection by email 
+    // find data from borrowedBook collection by email
     useEffect(() => {
         const getBorrowedData = async () => {
             const res = await axios.get(`${import.meta.env.VITE_API_URL}/single/borrow/${id}`);
@@ -90,48 +90,66 @@ const BookDetails = () => {
     }
 
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto my-20">
             {/* Setup Page-Title by react Helmet */}
             <PageTitle title="BookDetails" />
 
-            <div className="flex flex-col md:flex-row items-center md:items-start">
-                <img src={book.image} alt={book.name} className="h-64 w-64 object-cover rounded-md shadow-md" />
-                <div className="md:ml-8 mt-4 md:mt-0">
-                    <h1 className="text-3xl font-bold mb-4">{book.name}</h1>
-                    <p className="text-lg mb-2">
-                        <strong>Author:</strong> {book.authorName}
-                    </p>
-                    <p className="text-lg mb-2">
-                        <strong>Category:</strong> {book.category}
-                    </p>
-                    <p className="text-lg mb-2">
-                        <strong>Quantity:</strong> {book.quantity}
-                    </p>
-                    <p className="text-lg mb-2">
-                        <strong>Rating:</strong>
-                    </p>
-                    <ReactStars value={book.rating} edit={false} isHalf={true} />
-                    <p className="text-lg mt-4">
-                        <strong>Description:</strong>
-                    </p>
-                    <p>{book.shortDescription}</p>
-                    <button
-                        onClick={() => {
-                            if (book.quantity > 0) {
-                                setModalIsOpen(true);
-                            } else {
-                                toast.error('Book is out of stock.');
-                            }
-                        }}
-                        className="bg-green-500 text-white px-4 py-2 rounded mt-4"
-                        disabled={alreadyBorrowed}>
-                        {alreadyBorrowed ? 'Already Borrowed' : 'Borrow'}
-                    </button>
+            <div className="flex flex-col lg:w-2/4 mx-auto text-center my-14 md:my-16 px-3">
+                <h1 className="text-3xl md:text-4xl font-bold mb-3 text-brandSecondary">Discover Your Next Read</h1>
+                <p className="text-base text-neutralGrey px-10">Find ratings, author details, genre, and a comprehensive description to decide your next book.</p>
+            </div>
+
+            <div className=" items-center md:items-start max-w-5xl mx-auto">
+                <div className="card md:card-side bg-base-100 shadow-xl space-x-6 md:space-x-10">
+                    <figure>
+                        <div className="h-72 md:h-[500px] md:w-[400px] border">
+                            <img src={book.image} alt={book.name} className="h-full w-56 md:w-full object-cover" />
+                        </div>
+                    </figure>
+
+                    <div className="text-base pr-3">
+                        <h2 className="font-bold mt-6 md:mt-10 mb-4 text-lg text-brandSecondary md:text-3xl">{book.name}!</h2>
+                        <div className="space-y-2 text-lg">
+                            <p>
+                                <strong>Author: </strong>
+                                {book.authorName}
+                            </p>
+                            <p>
+                                <strong>Category:</strong> {book.category}
+                            </p>
+                            <p>
+                                <strong>Quantity:</strong> {book.quantity}
+                            </p>
+                        </div>
+                        <div className="flex items-center mb-4 mt-4">
+                            <ReactStars count={5} value={book.rating} activeColor="#ffd700" edit={false} isHalf={true} />
+                            <span className="ml-2 text-sm">{book.rating} / 5</span>
+                        </div>
+                        <p className="text-lg mt-4">
+                            <strong>Description:</strong>
+                        </p>
+                        <p className="mt-1 mb-4 mr-8">{book.shortDescription}</p>
+
+                        <div className="card-actions justify-start lg:mr-8 mb-8">
+                            <button
+                                onClick={() => {
+                                    if (book.quantity > 0) {
+                                        setModalIsOpen(true);
+                                    } else {
+                                        toast.error('Book is out of stock.');
+                                    }
+                                }}
+                                className="btn bg-brandSecondary text-brandLight hover:text-brandPrimary md:w-48 py-3"
+                                disabled={alreadyBorrowed}>
+                                {alreadyBorrowed ? 'Already Borrowed' : 'Borrow'}
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} contentLabel="Borrow Book">
-                <div className="mt-12 md:max-w-[500px] mx-auto md:shadow-lg md:px-10 py-20">
+                <div className="mt-12 md:max-w-[600px] mx-auto md:shadow-lg md:px-10 py-20">
                     {/* Setup Page-Title by react Helmet */}
                     <PageTitle title="BorrowBook" />
 
@@ -173,7 +191,7 @@ const BookDetails = () => {
                             />
                         </label>
                         <br />
-                        <button type="submit" className="bg-brandPrimary hover:bg-brandSecondary transition text-white px-4 py-2 rounded mt-4">
+                        <button type="submit" className="bg-brandSecondary hover:bg-brandSecondary transition text-white px-4 py-2 rounded mt-4">
                             Submit
                         </button>
                     </form>

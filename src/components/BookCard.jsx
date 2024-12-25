@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactStars from 'react-rating-stars-component';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,24 +9,28 @@ const BookCard = ({ book }) => {
     };
 
     return (
-        <div className="bg-white shadow-lg overflow-hidden p-6 rounded-xl ">
-            <div className="border shadow-xl">
-                <img className="w-full h-[400px] rounded-lg " src={book.image} alt={book.name} />
-            </div>
-            <div className="pt-4 px-1">
-                <h2 className="text-xl font-bold mb-2">{book.name}</h2>
-                <p className="text-gray-700 mb-2">Author: {book.authorName}</p>
-                <p className="text-gray-700 mb-2">Category: {book.category}</p>
-                <p className="text-gray-700 mb-2">Quantity: {book.quantity}</p>
-                <div className="flex items-center mb-4">
-                    <div className="flex items-center mb-2">
-                        <ReactStars count={5} value={book.rating} size={24} activeColor="#ffd700" edit={false} isHalf={true} />
-                        <span className="ml-2 text-sm">{book.rating} / 5</span>
-                    </div>
+        <div key={book._id} className="card card-side bg-base-100 shadow-xl space-x-6 md:space-x-10">
+            <figure>
+                <div className="h-72 md:h-80 border">
+                    <img src={book.image} alt={book.name} className="h-full w-72 md:w-48" />
                 </div>
-                <button onClick={handleUpdateClick} className="bg-brandPrimary text-white px-6 py-3 rounded hover:bg-brandSecondary">
-                    Update
-                </button>
+            </figure>
+            <div className="text-base pr-3">
+                <h2 className="font-bold mt-6 md:mt-8 mb-2 text-lg md:text-xl">{book.name}!</h2>
+                <div className='md:space-y-2 md:mt-6'>
+                    <p>Author: {book.authorName}</p>
+                    <p>Category: {book.category}</p>
+                    <p>Quantity: {book.quantity}</p>
+                </div>
+                <div className="flex items-center mb-4 md:mb-6 mt-1 md:mt-2">
+                    <ReactStars count={5} value={book.rating} activeColor="#ffd700" edit={false} isHalf={true} />
+                    <span className="ml-2 text-sm">{book.rating} / 5</span>
+                </div>
+                <div className="card-actions justify-start lg:mr-8">
+                    <button onClick={() => handleUpdateClick(book._id)} className="bg-brandSecondary text-white px-4 py-2 rounded hover:bg-brandPrimary">
+                        Update
+                    </button>
+                </div>
             </div>
         </div>
     );

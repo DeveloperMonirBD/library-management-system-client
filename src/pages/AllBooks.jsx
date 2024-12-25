@@ -39,25 +39,33 @@ const AllBooks = () => {
     const filteredBooks = showAvailable ? books.filter(book => book.quantity > 0) : books;
 
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto pt-16 ">
             {/* Setup Page-Title by react Helmet */}
             <PageTitle title="AllBooks" />
 
-            <h1 className="text-2xl font-bold mb-6">All Books</h1>
+            <div className="flex flex-col lg:w-2/4 mx-auto text-center md:mb-16 px-3">
+                <h1 className="text-3xl md:text-4xl font-bold mb-3 text-brandSecondary">Explore Our All Books</h1>
+                <p className="text-base text-neutralGrey px-10">Explore our extensive collection, organized for easy navigation and browsing.</p>
+            </div>
+
             <div className="flex justify-between">
                 <button onClick={toggleShowAvailable} className="mb-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
                     {showAvailable ? 'Show All Books' : 'Show Available Books'}
                 </button>
+
+                {/* View */}
                 <div className="mb-4">
-                    <label className="mr-2">View:</label>
-                    <select value={view} onChange={handleViewChange} className="p-2 border border-gray-300 rounded-md">
+                    <label className="mr-3 font-bold text-brandPrimary">View:</label>
+                    <select value={view} onChange={handleViewChange} className="p-2 border border-brandPrimary rounded-md">
                         <option value="card">Card View</option>
                         <option value="table">Table View</option>
                     </select>
                 </div>
             </div>
+
+            {/* table or card  */}
             {view === 'card' ? (
-                <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 md:gap-6 lg:gap-10 mt-10">
                     {filteredBooks.map(book => (
                         <BookCard key={book._id} book={book} />
                     ))}
@@ -79,19 +87,19 @@ const AllBooks = () => {
                         <tbody>
                             {filteredBooks.map(book => (
                                 <tr key={book._id}>
-                                    <td className="py-2">
-                                        <img src={book.image} alt={book.name} className="h-16 w-16 object-cover" />
+                                    <td className="py-2 pl-4">
+                                        <img src={book.image} alt={book.name} className="h-16 w-16 object-cover pr-2" />
                                     </td>
                                     <td className="py-2">{book.name}</td>
                                     <td className="py-2">{book.authorName}</td>
                                     <td className="py-2">{book.category}</td>
                                     <td className="py-2">{book.quantity}</td>
                                     <td className="py-2">
-                                        <ReactStars count={5} value={book.rating} size={24} activeColor="#ffd700" edit={false} isHalf={true} />
+                                        <ReactStars count={5} value={book.rating} activeColor="#ffd700" edit={false} isHalf={true} />
                                         {/* <span className="ml-2 text-sm">{book.rating} / 5</span> */}
                                     </td>
                                     <td className="py-2">
-                                        <button onClick={() => handleUpdateClick(book._id)} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                                        <button onClick={() => handleUpdateClick(book._id)} className="bg-brandSecondary text-white px-4 py-2 rounded hover:bg-brandPrimary">
                                             Update
                                         </button>
                                     </td>

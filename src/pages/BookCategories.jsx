@@ -34,12 +34,14 @@ const BookCategories = () => {
 
     return (
         <div className="container mx-auto">
-            <div className="flex flex-col lg:w-2/4 mx-auto text-center my-16 px-3">
-                <h1 className="text-4xl font-bold mb-3 text-brandSecondary">Explore Our Book Categories</h1>
-                <p className="text-base text-neutralGrey">
+
+            <div className="flex flex-col lg:w-2/4 mx-auto text-center my-14 md:my-16 px-3">
+                <h1 className="text-3xl md:text-4xl font-bold mb-3 text-brandSecondary">Explore Our Book Categories</h1>
+                <p className="text-base text-neutralGrey px-10">
                     Dive into a world of knowledge and imagination. Explore our vast collection of books across various genres and find your next favorite read.
                 </p>
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-10">
                 {categoryData.map(category => (
                     <div

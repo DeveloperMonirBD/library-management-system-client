@@ -45,11 +45,11 @@ const UpdateBook = () => {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-16">
             {/* Setup Page-Title by react Helmet */}
             <PageTitle title="UpdateBook" />
 
-            <h1 className="text-2xl font-bold mb-6">Update Book</h1>
+            <h1 className="text-2xl font-bold text-brandSecondary mb-6">Update Book</h1>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Image URL</label>
