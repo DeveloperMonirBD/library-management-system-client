@@ -23,30 +23,32 @@ const BookDetails = () => {
                 const response = await axios.get(`${import.meta.env.VITE_API_URL}/books/${id}`);
                 setBook(response.data);
                 setLoading(false);
-                checkIfAlreadyBorrowed(response.data._id);
+                // checkIfAlreadyBorrowed(response.data._id);
             } catch (error) {
                 console.error('Error fetching book details:', error);
                 setLoading(false);
             }
         };
 
-        const checkIfAlreadyBorrowed = async bookId => {
-            try {
-                const response = await axios.get(`${import.meta.env.VITE_API_URL}/borrowedBooks`, {
-                    params: {
-                        bookId: bookId,
-                        userId: user.uid
-                    }
-                });
-                setAlreadyBorrowed(response.data.length > 0);
-            } catch (error) {
-                console.error('Error checking if already borrowed:', error);
-            }
-        };
-
         fetchBookDetails();
     }, [id, user.uid]);
 
+    // find data from borrowedBook collection by email 
+    useEffect(() => {
+        const getBorrowedData = async () => {
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/single/borrow/${id}`);
+            console.log(res);
+
+            if (res?.data?.userEmail === user?.email) {
+                setAlreadyBorrowed(true);
+            } else {
+                setAlreadyBorrowed(false);
+            }
+        };
+        getBorrowedData();
+    }, [id]);
+
+    console.log(alreadyBorrowed);
     const handleBorrow = async () => {
         if (new Date(returnDate) < new Date()) {
             toast.error('Return date cannot be before today.');
