@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import userIcon from '../assets/user.png';
 import logo from '../assets/logo.png';
+import userIcon from '../assets/user.png';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
@@ -9,18 +9,16 @@ const Navbar = () => {
 
     const links = (
         <>
-            <li className="hover:text-brandPrimary ">
-                <NavLink to="/" className="dark:text-white">
-                    Home
-                </NavLink>
+            <li className="hover:text-brandSecondary ">
+                <NavLink to="/">Home</NavLink>
             </li>
-            <li className="hover:text-brandLight">
+            <li className="hover:text-brandSecondary">
                 <NavLink to="/allBooks">All Books</NavLink>
             </li>
-            <li className="hover:text-brandLight">
+            <li className="hover:text-brandSecondary">
                 <NavLink to="/addBook">Add Book</NavLink>
             </li>
-            <li className="hover:text-brandLight">
+            <li className="hover:text-brandSecondary">
                 <NavLink to="/borrowedBooks">Borrowed Books</NavLink>
             </li>
         </>
@@ -28,17 +26,19 @@ const Navbar = () => {
 
     return (
         <div className="navbar container mx-auto px-3 py-3">
+            {/* Mobile View */}
             <div className="navbar-start">
+                {/* dropdown */}
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost text-brandLight lg:hidden">
+                    <div tabIndex={0} role="button" className="btn btn-ghost text-brandPrimary lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </div>
-                    <ul tabIndex={0} className="menu menu-md dropdown-content rounded-box z-[1] mt-3 w-52 p-3 shadow bg-[#0F766E] text-brandLight font-semibold gap-2 ">
+                    <ul tabIndex={0} className="menu menu-md dropdown-content rounded-box z-[1] mt-3 w-52 p-3 shadow bg-[#F1E5E5] text-brandPrimary font-semibold gap-2 ">
                         {links}
                         {user && user?.email ? (
-                            <button onClick={logOut} className="btn bg-neutral text-brandLight hover:text-brandPrimary font-bold">
+                            <button onClick={logOut} className="btn bg-neutral text-brandLight hover:text-brandSecondary font-bold">
                                 Log out
                             </button>
                         ) : (
@@ -53,14 +53,19 @@ const Navbar = () => {
                         )}
                     </ul>
                 </div>
-                <Link to="/" className="text-2xl font-extrabold text-brandLight flex items-center gap-2 transform transition-all hover:scale-105 cursor-pointer duration-300">
-                    <img className='w-14' src={logo} alt="" />
+
+                {/* brand logo  */}
+                <Link to="/" className="text-2xl font-extrabold text-brandPrimary flex items-center gap-1 transform transition-all hover:scale-105 cursor-pointer duration-300">
+                    <img className="w-14" src={logo} alt="" />
                     <h2>LibrarySystem</h2>
                 </Link>
             </div>
+
+            {/* desktop View  */}
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 text-brandLight gap-2 font-bold ">{links}</ul>
+                <ul className="menu menu-horizontal px-1 text-brandPrimary gap-2 font-bold ">{links}</ul>
             </div>
+
             <div className="navbar-end md:flex gap-3">
                 <div>
                     {user && user?.email ? (

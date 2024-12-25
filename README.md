@@ -57,7 +57,7 @@ Explore the world of cutting-edge technology with Gadget Heaven and find the per
 
 ### Installation
 
-1. Clone the repository: `bash git clone https://github.com/programming-hero-web-course2/b10a11-client-side-DeveloperMonirBD.git cd b10a11-client-side `
+1. Clone the repository: `https://github.com/programming-hero-web-course2/b10a11-client-side-DeveloperMonirBD.git`, `cd b10a11-client-side`
 
 2. Install the dependencies: `bash npm install `
 
@@ -67,10 +67,14 @@ Explore the world of cutting-edge technology with Gadget Heaven and find the per
 
 4. Open your browser and navigate to
 
-`....` to view the application.
+`https://librarysystem-bb68d.web.app` to view the application.
 
 ## What to Submit
 
--   Private Github Repo Link : https://github.com/programming-hero-web-course2/b10a11-client-side-DeveloperMonirBD
+Assignment Category: Library Management System - 08
 
--   Live link to the deployed project :
+Your client-side code GitHub repository link : https://github.com/programming-hero-web-course2/b10a11-client-side-DeveloperMonirBD
+
+Your server-side code GitHub repository link: https://github.com/programming-hero-web-course2/b10a11-server-side-DeveloperMonirBD
+
+Live link to the deployed project : https://librarysystem-bb68d.web.app
