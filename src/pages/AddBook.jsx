@@ -20,11 +20,19 @@ const AddBook = () => {
     });
 
     const handleChange = e => {
-        setBook({ ...book, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        setBook({
+            ...book,
+            [name]: name === 'quantity' || name === 'rating' ? Number(value) : value
+        });
     };
 
     const handleSubmit = async e => {
         e.preventDefault();
+        if (book.rating < 0 || book.rating > 5) {
+            toast.error('Rating must be between 0 and 5.');
+            return;
+        }
         try {
             await axios.post(`${import.meta.env.VITE_API_URL}/books`, book);
             toast.success('Book added successfully!');
@@ -37,9 +45,7 @@ const AddBook = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            {/* setup Page-Title by react Helmet */}
             <PageTitle title="AddBook" />
-
             <h1 className="text-2xl font-bold mb-6">Add Book</h1>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
@@ -71,7 +77,17 @@ const AddBook = () => {
                 </div>
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Rating</label>
-                    <input type="number" name="rating" value={book.rating} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm " required />
+                    <input
+                        type="number"
+                        name="rating"
+                        step="0.1"
+                        min="0"
+                        max="5"
+                        value={book.rating}
+                        onChange={handleChange}
+                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm "
+                        required
+                    />
                 </div>
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Short Description</label>
