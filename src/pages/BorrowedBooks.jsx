@@ -64,7 +64,7 @@ const BorrowedBooks = () => {
                 whileInView={'show'}
                 viewport={{ once: false, amount: 0.7 }}
                 className="flex flex-col lg:w-2/4 mx-auto text-center my-14 md:my-16 px-3">
-                <h1 className="text-3xl md:text-4xl font-bold mb-3 text-brandSecondary">My Borrowed Books</h1>
+                <h1 className="text-3xl font-bold mb-3 text-brandPrimary">My Borrowed Books</h1>
                 <p className="text-base text-neutralGrey px-10">Select and borrow books. Check availability, choose a return date, and enjoy reading.</p>
             </motion.div>
 

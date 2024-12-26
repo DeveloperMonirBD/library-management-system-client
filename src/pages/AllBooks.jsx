@@ -50,7 +50,7 @@ const AllBooks = () => {
             <PageTitle title="AllBooks" />
 
             <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="flex flex-col lg:w-2/4 mx-auto text-center md:mb-16 px-3">
-                <h1 className="text-3xl md:text-4xl font-bold mb-3 text-brandSecondary">Explore Our All Books</h1>
+                <h1 className="text-3xl font-bold mb-3 text-brandPrimary">Explore Our All Books</h1>
                 <p className="text-base text-neutralGrey px-10">Explore our extensive collection, organized for easy navigation and browsing.</p>
             </motion.div>
 

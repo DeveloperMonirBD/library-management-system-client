@@ -106,7 +106,7 @@ const BookDetails = () => {
                 whileInView={'show'}
                 viewport={{ once: false, amount: 0.7 }}
                 className="flex flex-col lg:w-2/4 mx-auto text-center my-14 md:my-16 px-3">
-                <h1 className="text-3xl md:text-4xl font-bold mb-3 text-brandSecondary">Discover Your Next Read</h1>
+                <h1 className="text-3xl font-bold mb-3 text-brandPrimary">Discover Your Next Read</h1>
                 <p className="text-base text-neutralGrey px-10">Find ratings, author details, genre, and a comprehensive description to decide your next book.</p>
             </motion.div>
 
@@ -164,7 +164,7 @@ const BookDetails = () => {
                     {/* Setup Page-Title by react Helmet */}
                     <PageTitle title="BorrowBook" />
 
-                    <h2 className="text-3xl md:text-4xl mb-10 flex justify-center font-bold">Borrow Book</h2>
+                    <h2 className="text-3xl mb-10 flex justify-center font-bold text-brandPrimary">Borrow Book</h2>
                     <form
                         className="form-control"
                         onSubmit={e => {
@@ -202,7 +202,7 @@ const BookDetails = () => {
                             />
                         </label>
                         <br />
-                        <button type="submit" className="bg-brandSecondary hover:bg-brandSecondary transition text-white px-4 py-2 rounded mt-4">
+                        <button type="submit" className="bg-brandPrimary hover:bg-brandSecondary transition text-white px-4 py-2 rounded mt-4">
                             Submit
                         </button>
                     </form>

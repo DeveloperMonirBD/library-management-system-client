@@ -49,7 +49,7 @@ const UpdateBook = () => {
             {/* Setup Page-Title by react Helmet */}
             <PageTitle title="UpdateBook" />
 
-            <h1 className="text-2xl font-bold text-brandSecondary mb-6">Update Book</h1>
+            <h1 className="text-3xl font-bold text-brandPrimary text-center mb-12">Update Book</h1>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Image URL</label>
@@ -86,7 +86,7 @@ const UpdateBook = () => {
                     <textarea name="shortDescription" value={book.shortDescription} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm" />
                 </div>
                 <div>
-                    <button type="submit" className="bg-brandPrimary text-white px-4 py-2 rounded hover:bg-brandSecondary">
+                    <button type="submit" className="bg-brandPrimary text-white px-6 py-2 rounded hover:bg-brandSecondary mt-3">
                         Submit
                     </button>
                 </div>

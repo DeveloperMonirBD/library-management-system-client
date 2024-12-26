@@ -75,7 +75,7 @@ const Login = () => {
                 <div className="mx-auto animate-updown">
                     <img className="w-28" src={logo} alt="" />
                 </div>
-                <h2 className="text-4xl font-semibold text-center text-brandPrimary pt-6">Login your account</h2>
+                <h2 className="text-4xl font-semibold text-center text-brandPrimary pt-6 px-8">Login your account</h2>
                 <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">
                         <label className="label">

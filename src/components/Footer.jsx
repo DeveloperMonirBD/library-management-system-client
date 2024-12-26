@@ -7,7 +7,7 @@ const Footer = () => {
             <footer className="footer p-10 container mx-auto lg:flex lg:justify-between items-start gap-10">
                 <nav>
                     <div>
-                        <Link className=" text-brandLight text-4xl font-bold">LibrarySystem</Link>
+                        <Link className=" text-brandLight text-3xl font-bold">LibrarySystem</Link>
                     </div>
                     <div className="text-brandLight space-y-2 mt-2">
                         <p>Location: av. Washington 165, NY CA 54003</p>

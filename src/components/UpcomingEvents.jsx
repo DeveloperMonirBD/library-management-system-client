@@ -9,7 +9,7 @@ const UpcomingEvents = () => {
         <section className=" mt-20 px-3">
             <div className="container mx-auto">
                 <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }}>
-                    <h2 className="text-4xl font-extrabold text-brandPrimary mb-8 text-center">Upcoming Events</h2>
+                    <h2 className="text-3xl font-extrabold text-brandPrimary mb-8 text-center">Upcoming Events</h2>
                     <p className="mb-8 max-w-3xl mx-auto leading-relaxed text-center">
                         Be part of our book club meeting. Discuss the book of the month with fellow readers, share your insights, and delve into meaningful conversations about literature.
                     </p>
