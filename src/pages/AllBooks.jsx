@@ -55,7 +55,7 @@ const AllBooks = () => {
             </motion.div>
 
             <motion.div variants={fadeIn('left', 0.3)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="flex justify-between">
-                <button onClick={toggleShowAvailable} className="mb-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                <button onClick={toggleShowAvailable} className="mb-4 bg-brandPrimary hover:bg-brandSecondary text-white px-4 py-2 rounded">
                     {showAvailable ? 'Show All Books' : 'Show Available Books'}
                 </button>
 
