@@ -10,7 +10,7 @@ const UpcomingEvents = () => {
             <div className="container mx-auto">
                 <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }}>
                     <h2 className="text-3xl font-extrabold text-brandPrimary mb-8 text-center">Upcoming Events</h2>
-                    <p className="mb-8 max-w-3xl mx-auto leading-relaxed text-center">
+                    <p className="mb-8 max-w-3xl mx-auto leading-relaxed text-center px-4">
                         Be part of our book club meeting. Discuss the book of the month with fellow readers, share your insights, and delve into meaningful conversations about literature.
                     </p>
                 </motion.div>
@@ -52,7 +52,7 @@ const UpcomingEvents = () => {
                     initial="hidden"
                     whileInView={'show'}
                     viewport={{ once: false, amount: 0.5 }}
-                    className="mt-10 text-base font-semiboldmax-w-2xl mx-auto leading-relaxed text-center">
+                    className="mt-10 text-base font-semibold max-w-2xl mx-auto leading-relaxed px-4 text-center">
                     Join us for an evening of poetry reading. Listen to local poets share their work, and if you're feeling inspired, you can even share your own poems.! 🚀🌟
                 </motion.p>
             </div>

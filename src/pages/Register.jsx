@@ -115,7 +115,7 @@ const Register = () => {
                 <div className="mx-auto animate-updown">
                     <img className="w-28" src={logo} alt="" />
                 </div>
-                <h2 className="text-4xl text-brandPrimary font-semibold text-center pt-10">Register your account</h2>
+                <h2 className="text-3xl text-brandPrimary font-semibold text-center pt-10 px-8">Register your account</h2>
                 <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">
                         <label className="label">
