@@ -1,3 +1,9 @@
+//motion
+import { motion } from 'framer-motion';
+
+//variants
+import { fadeIn } from '../variants';
+
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ReactStars from 'react-rating-stars-component';
@@ -43,12 +49,12 @@ const AllBooks = () => {
             {/* Setup Page-Title by react Helmet */}
             <PageTitle title="AllBooks" />
 
-            <div className="flex flex-col lg:w-2/4 mx-auto text-center md:mb-16 px-3">
+            <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="flex flex-col lg:w-2/4 mx-auto text-center md:mb-16 px-3">
                 <h1 className="text-3xl md:text-4xl font-bold mb-3 text-brandSecondary">Explore Our All Books</h1>
                 <p className="text-base text-neutralGrey px-10">Explore our extensive collection, organized for easy navigation and browsing.</p>
-            </div>
+            </motion.div>
 
-            <div className="flex justify-between">
+            <motion.div variants={fadeIn('left', 0.3)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="flex justify-between">
                 <button onClick={toggleShowAvailable} className="mb-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
                     {showAvailable ? 'Show All Books' : 'Show Available Books'}
                 </button>
@@ -61,7 +67,7 @@ const AllBooks = () => {
                         <option value="table">Table View</option>
                     </select>
                 </div>
-            </div>
+            </motion.div>
 
             {/* table or card  */}
             {view === 'card' ? (
@@ -71,7 +77,7 @@ const AllBooks = () => {
                     ))}
                 </div>
             ) : (
-                <div className="overflow-x-auto">
+                <motion.div variants={fadeIn('right', 0.4)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.5 }} className="overflow-x-auto">
                     <table className="min-w-full bg-white">
                         <thead>
                             <tr>
@@ -107,7 +113,7 @@ const AllBooks = () => {
                             ))}
                         </tbody>
                     </table>
-                </div>
+                </motion.div>
             )}
         </div>
     );

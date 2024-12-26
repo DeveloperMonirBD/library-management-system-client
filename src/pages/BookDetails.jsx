@@ -1,3 +1,9 @@
+//motion
+import { motion } from 'framer-motion';
+
+//variants
+import { fadeIn } from '../variants';
+
 import { useContext, useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import ReactStars from 'react-rating-stars-component';
@@ -94,12 +100,17 @@ const BookDetails = () => {
             {/* Setup Page-Title by react Helmet */}
             <PageTitle title="BookDetails" />
 
-            <div className="flex flex-col lg:w-2/4 mx-auto text-center my-14 md:my-16 px-3">
+            <motion.div
+                variants={fadeIn('up', 0.2)}
+                initial="hidden"
+                whileInView={'show'}
+                viewport={{ once: false, amount: 0.7 }}
+                className="flex flex-col lg:w-2/4 mx-auto text-center my-14 md:my-16 px-3">
                 <h1 className="text-3xl md:text-4xl font-bold mb-3 text-brandSecondary">Discover Your Next Read</h1>
                 <p className="text-base text-neutralGrey px-10">Find ratings, author details, genre, and a comprehensive description to decide your next book.</p>
-            </div>
+            </motion.div>
 
-            <div className=" items-center md:items-start max-w-5xl mx-auto">
+            <motion.div variants={fadeIn('left', 0.3)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className=" items-center md:items-start max-w-5xl mx-auto">
                 <div className="card md:card-side bg-base-100 shadow-xl space-x-6 md:space-x-10">
                     <figure>
                         <div className="h-72 md:h-[500px] md:w-[400px] border">
@@ -146,7 +157,7 @@ const BookDetails = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} contentLabel="Borrow Book">
                 <div className="mt-12 md:max-w-[600px] mx-auto md:shadow-lg md:px-10 py-20">

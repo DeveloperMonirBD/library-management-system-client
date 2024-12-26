@@ -1,3 +1,9 @@
+//motion
+import { motion } from 'framer-motion';
+
+//variants
+import { fadeIn } from '../variants';
+
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ReactStars from 'react-rating-stars-component';
@@ -33,14 +39,25 @@ const BookList = () => {
             {/* Setup Page-Title by react Helmet */}
             <PageTitle title="BookList" />
 
-            <div className="flex flex-col lg:w-2/4 mx-auto text-center my-14 md:my-16 px-3">
+            <motion.div
+                variants={fadeIn('up', 0.2)}
+                initial="hidden"
+                whileInView={'show'}
+                viewport={{ once: false, amount: 0.7 }}
+                className="flex flex-col lg:w-2/4 mx-auto text-center my-14 md:my-16 px-3">
                 <h1 className="text-3xl md:text-4xl font-bold mb-3 text-brandSecondary">Explore Our Collection</h1>
                 <p className="text-base text-neutralGrey px-10">Browse our curated book list, sorted by genre. Find your next great read today.</p>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 md:gap-6 lg:gap-10">
                 {books.map(book => (
-                    <div key={book._id} className="card card-side bg-base-100 shadow-xl space-x-6 md:space-x-10">
+                    <motion.div
+                        variants={fadeIn('left', 0.3)}
+                        initial="hidden"
+                        whileInView={'show'}
+                        viewport={{ once: false, amount: 0.7 }}
+                        key={book._id}
+                        className="card card-side bg-base-100 shadow-xl space-x-6 md:space-x-10">
                         <figure>
                             <div className="h-72 md:h-80 border">
                                 <img src={book.image} alt={book.name} className="h-full w-72 md:w-48" />
@@ -48,7 +65,7 @@ const BookList = () => {
                         </figure>
                         <div className="text-base pr-3">
                             <h2 className="font-bold mt-6 md:mt-8 mb-2 md:mb-4 text-lg md:text-xl">{book.name}!</h2>
-                            <div className='md:space-y-2'>
+                            <div className="md:space-y-2">
                                 <p>Author: {book.authorName}</p>
                                 <p>Category: {book.category}</p>
                                 <p>Quantity: {book.quantity}</p>
@@ -63,7 +80,7 @@ const BookList = () => {
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </div>

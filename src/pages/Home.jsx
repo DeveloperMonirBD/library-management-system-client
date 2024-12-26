@@ -1,5 +1,7 @@
 import Carousel from '../components/Carousel';
+import EnhanceKnowledge from '../components/EnhanceKnowledge';
 import PageTitle from '../components/PageTitle';
+import UpcomingEvents from '../components/UpcomingEvents';
 import BookCategories from './BookCategories';
 
 const Home = () => {
@@ -10,6 +12,8 @@ const Home = () => {
 
             <Carousel />
             <BookCategories />
+            <UpcomingEvents />
+            <EnhanceKnowledge />
         </div>
     );
 };

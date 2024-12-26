@@ -1,3 +1,9 @@
+//motion
+import { motion } from 'framer-motion';
+
+//variants
+import { fadeIn } from '../variants';
+
 import { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import PageTitle from '../components/PageTitle';
@@ -52,17 +58,28 @@ const BorrowedBooks = () => {
             {/* Setup Page-Title by react Helmet */}
             <PageTitle title="BorrowedBooks" />
 
-            <div className="flex flex-col lg:w-2/4 mx-auto text-center my-14 md:my-16 px-3">
+            <motion.div
+                variants={fadeIn('up', 0.2)}
+                initial="hidden"
+                whileInView={'show'}
+                viewport={{ once: false, amount: 0.7 }}
+                className="flex flex-col lg:w-2/4 mx-auto text-center my-14 md:my-16 px-3">
                 <h1 className="text-3xl md:text-4xl font-bold mb-3 text-brandSecondary">My Borrowed Books</h1>
                 <p className="text-base text-neutralGrey px-10">Select and borrow books. Check availability, choose a return date, and enjoy reading.</p>
-            </div>
+            </motion.div>
 
             {borrowedBooks.length === 0 ? (
                 <p>No borrowed books</p>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 md:gap-6 lg:gap-10">
                     {borrowedBooks.map(book => (
-                        <div key={book._id} className="card card-side bg-base-100 shadow-xl space-x-6 md:space-x-10">
+                        <motion.div
+                            variants={fadeIn('left', 0.3)}
+                            initial="hidden"
+                            whileInView={'show'}
+                            viewport={{ once: false, amount: 0.7 }}
+                            key={book._id}
+                            className="card card-side bg-base-100 shadow-xl space-x-6 md:space-x-10">
                             <figure>
                                 <div className="h-72 md:h-80 border">
                                     <img src={book.image} alt={book.name} className="h-full w-72 md:w-48" />
@@ -81,25 +98,9 @@ const BorrowedBooks = () => {
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
-
-                // <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                //     {borrowedBooks.map(book => (
-                //         <div key={book.bookId} className="border rounded shadow-md p-4">
-                //             <img src={book.image} alt={book.name} className="h-48 w-full object-cover" />
-                // <h3 className="text-xl font-bold mt-2">{book.name}</h3>
-                // <p>Category: {book.category}</p>
-                // <p>Borrowed Date: {new Date(book.borrowedDate).toLocaleDateString()}</p>
-                //     <p>Return Date: {new Date(book.returnDate).toLocaleDateString()}</p>
-
-                // <button onClick={() => handleReturn(book.bookId)} className="bg-red-500 text-white px-4 py-2 rounded mt-4">
-                //     Return
-                // </button>
-                //         </div>
-                //     ))}
-                // </div>
             )}
         </div>
     );

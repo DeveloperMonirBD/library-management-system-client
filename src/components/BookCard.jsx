@@ -1,3 +1,9 @@
+//motion
+import { motion } from 'framer-motion';
+
+//variants
+import { fadeIn } from '../variants';
+
 import ReactStars from 'react-rating-stars-component';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +15,13 @@ const BookCard = ({ book }) => {
     };
 
     return (
-        <div key={book._id} className="card card-side bg-base-100 shadow-xl space-x-6 md:space-x-10">
+        <motion.div
+            variants={fadeIn('right', 0.4)}
+            initial="hidden"
+            whileInView={'show'}
+            viewport={{ once: false, amount: 0.5 }}
+            key={book._id}
+            className="card card-side bg-base-100 shadow-xl space-x-6 md:space-x-10">
             <figure>
                 <div className="h-72 md:h-80 border">
                     <img src={book.image} alt={book.name} className="h-full w-72 md:w-48" />
@@ -17,7 +29,7 @@ const BookCard = ({ book }) => {
             </figure>
             <div className="text-base pr-3">
                 <h2 className="font-bold mt-6 md:mt-8 mb-2 text-lg md:text-xl">{book.name}!</h2>
-                <div className='md:space-y-2 md:mt-6'>
+                <div className="md:space-y-2 md:mt-6">
                     <p>Author: {book.authorName}</p>
                     <p>Category: {book.category}</p>
                     <p>Quantity: {book.quantity}</p>
@@ -32,7 +44,7 @@ const BookCard = ({ book }) => {
                     </button>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
