@@ -64,13 +64,13 @@ const BorrowedBooks = () => {
                     {borrowedBooks.map(book => (
                         <div key={book._id} className="card card-side bg-base-100 shadow-xl space-x-6 md:space-x-10">
                             <figure>
-                                <div className="h-72 border">
+                                <div className="h-72 md:h-80 border">
                                     <img src={book.image} alt={book.name} className="h-full w-72 md:w-48" />
                                 </div>
                             </figure>
                             <div className="text-base pr-3 pt-6 md:pt-8">
                                 <h3 className="text-xl font-bold mt-2 mb-3 md:mb-4">{book.name}</h3>
-                                <div className="space-y-2">
+                                <div className="space-y-2 md:space-y-3">
                                     <p>Category: {book.category}</p>
                                     <p>Borrowed Date: {new Date(book.borrowedDate).toLocaleDateString()}</p>
                                     <p>Return Date: {new Date(book.returnDate).toLocaleDateString()}</p>
