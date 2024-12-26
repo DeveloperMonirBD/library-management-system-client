@@ -7,17 +7,17 @@
 @layer components {
     .animate-updown {
         animation-name: animate-updownAnim;
-        animation-duration: 2s;
+        animation-duration: 3s;
         animation-iteration-count: infinite;
         animation-direction: alternate-reverse;
     }
 
     @keyframes animate-updownAnim {
         from {
-            transform: translateY(-20px);
+            transform: translateY(-15px);
         }
         to {
-            transform: translateY(20px);
+            transform: translateY(15px);
         }
     }
 }

@@ -4,8 +4,9 @@ import { toast, Toaster } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import google from '../../src/assets/google.png';
-import { AuthContext } from '../provider/AuthProvider';
+import logo from '../../src/assets/logo.png';
 import PageTitle from '../components/PageTitle';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Register = () => {
     const { createNewUser, setUser, updateUserProfile, auth } = useContext(AuthContext);
@@ -107,11 +108,13 @@ const Register = () => {
 
     return (
         <div className="md:min-h-screen flex justify-center items-center mb-10">
-
             {/* Setup Page-Title by react Helmet */}
             <PageTitle title="Register" />
 
             <div className="card bg-base-100 w-full max-w-3xl shrink-0 shadow-2xl md:p-8">
+                <div className="mx-auto animate-updown">
+                    <img className="w-28" src={logo} alt="" />
+                </div>
                 <h2 className="text-4xl text-brandPrimary font-semibold text-center pt-10">Register your account</h2>
                 <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">

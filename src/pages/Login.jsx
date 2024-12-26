@@ -4,6 +4,7 @@ import { useContext, useRef, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import google from '../../src/assets/google.png';
+import logo from '../../src/assets/logo.png';
 import { AuthContext } from '../provider/AuthProvider';
 
 import { toast, Toaster } from 'react-hot-toast';
@@ -67,11 +68,13 @@ const Login = () => {
 
     return (
         <div className="md:min-h-[calc(100vh-200px)] flex justify-center items-center">
-
             {/* Setup Page-Title by react Helmet */}
             <PageTitle title="Login" />
 
             <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-2xl md:p-8 pt-6">
+                <div className="mx-auto animate-updown">
+                    <img className="w-28" src={logo} alt="" />
+                </div>
                 <h2 className="text-4xl font-semibold text-center text-brandPrimary pt-6">Login your account</h2>
                 <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">
@@ -104,7 +107,7 @@ const Login = () => {
                     </div>
 
                     <div className="form-control mt-6 flex justify-center gap-3">
-                        <button type="button" onClick={handleGoogleLogin} className="btn text-base bg-brandPrimary ">
+                        <button type="button" onClick={handleGoogleLogin} className="btn text-brandLight bg-brandPrimary ">
                             <img className="w-6 mr-1 shadow-2xl" src={google} alt="" /> Google Login
                         </button>
                     </div>
