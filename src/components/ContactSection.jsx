@@ -9,13 +9,13 @@ import contactLottieData from '../assets/Images/Animation - 1736485610507.json';
 const ContactSection = () => {
     return (
         <div id="contact" className="contact py-16 border-t bg-white">
-            <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="container mx-auto px-6">
+            <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="container mx-auto md:px-6">
                 <div className="flex flex-wrap">
-                    <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
-                        <Lottie animationData={contactLottieData} />
+                    <div className="flex justify-center w-full lg:w-1/2 mb-6 lg:mb-0">
+                        <Lottie className='w-full md:w-2/3' animationData={contactLottieData} />
                     </div>
 
-                    <div className="w-full lg:w-1/2 border px-10 py-12 rounded-2xl mt-6 lg:mt-0 shadow-sm bg-base-100">
+                    <div className="w-full lg:w-1/2 border px-2 md:px-10 py-12 rounded-2xl mt-6 lg:mt-0 shadow-sm bg-base-100">
                         <h2 className="text-4xl font-extrabold text-brandPrimary text-center mb-8">Contact Us</h2>
 
                         <form action="https://api.web3forms.com/submit" method="POST">
@@ -44,7 +44,7 @@ const ContactSection = () => {
                                 </div>
                             </div>
                             <div className="text-center">
-                                <button className="btn btn-primary bg-brandPrimary text-white px-6 py-3 rounded" type="submit">
+                                <button className="btn btn-primary bg-brandPrimary text-white px-6 py-3 rounded w-full md:w-48" type="submit">
                                     Send Message
                                 </button>
                             </div>
