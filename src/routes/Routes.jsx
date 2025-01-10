@@ -42,11 +42,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/allBooks',
-                element: (
-                    <PrivetRoute>
-                        <AllBooks />
-                    </PrivetRoute>
-                )
+                element: <AllBooks />
             },
             {
                 path: '/update-book/:id',

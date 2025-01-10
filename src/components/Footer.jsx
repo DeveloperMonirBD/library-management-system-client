@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
 import { FaGithub, FaInstalod, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div id="footer" className=" bg-brandSecondary text-neutral px-3 pt-20">
+        <div id="footer" className=" bg-neutral text-neutral px-3 pt-20">
             <footer className="footer p-10 container mx-auto lg:flex lg:justify-between items-start gap-10">
                 <nav>
                     <div>
@@ -54,18 +54,19 @@ const Footer = () => {
                 </nav>
 
                 <form className="text-gray-900">
-                    <h6 className="text-2xl text-white font-bold">Drop a Message</h6>
+                    <h6 className="text-2xl text-brandLight font-bold">Drop a Message</h6>
                     <fieldset className="form-control w-80">
                         <label className="label"></label>
-                        <div className=" space-y-4">
+                        <form action="https://api.web3forms.com/submit" method="POST" className=" space-y-4">
+                            <input type="hidden" name="access_key" value="affcf978-2dba-4c37-90b4-c96a6fc47a92" />
                             <div>
-                                <input type="text" placeholder="username@site.com" className="input input-bordered join-item w-full" />
+                                <input type="text" name="email" placeholder="username@site.com" className="input input-bordered join-item w-full" />
                             </div>
 
-                            <button type="submit" className="btn text-lg bg-brandPrimary text-white hover:text-gray-900 join-item w-full">
+                            <button type="submit" className="btn text-lg bg-brandPrimary text-brandLight hover:text-gray-900 join-item w-full">
                                 Subscribe
                             </button>
-                        </div>
+                        </form>
                     </fieldset>
                 </form>
             </footer>

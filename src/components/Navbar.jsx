@@ -15,12 +15,16 @@ const Navbar = () => {
             <li className="hover:text-brandSecondary">
                 <NavLink to="/allBooks">All Books</NavLink>
             </li>
-            <li className="hover:text-brandSecondary">
-                <NavLink to="/addBook">Add Book</NavLink>
-            </li>
-            <li className="hover:text-brandSecondary">
-                <NavLink to="/borrowedBooks">Borrowed Books</NavLink>
-            </li>
+            {user && user.email && (
+                <>
+                    <li className="hover:text-brandSecondary">
+                        <NavLink to="/addBook">Add Book</NavLink>
+                    </li>
+                    <li className="hover:text-brandSecondary">
+                        <NavLink to="/borrowedBooks">Borrowed Books</NavLink>
+                    </li>
+                </>
+            )}
         </>
     );
 
@@ -62,15 +66,14 @@ const Navbar = () => {
             </div>
 
             {/* desktop View  */}
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 text-brandPrimary gap-2 font-bold ">{links}</ul>
-            </div>
-
             <div className="navbar-end md:flex gap-3">
+                <div className=" navbar-center hidden lg:flex">
+                    <ul className="menu menu-horizontal px-1 text-brandPrimary gap-2 font-bold">{links}</ul>
+                </div>
                 <div>
                     {user && user?.email ? (
                         <div className="relative flex items-center gap-2 group">
-                            <Link to="/myProfile" className="flex lg:ml-10 items-center gap-2">
+                            <Link to="/myProfile" className="flex items-center gap-2">
                                 <img className="w-14 h-14 rounded-full object-cover object-center" src={user?.photoURL} alt="" />
                             </Link>
                             <span className="absolute min-w-48 top-full right-0 lg:-right-10 mt-2 bg-brandLight text-brandPrimary font-bold border border-gray-200 rounded shadow-md p-3 text-sm hidden group-hover:block">

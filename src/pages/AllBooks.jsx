@@ -77,42 +77,55 @@ const AllBooks = () => {
                     ))}
                 </div>
             ) : (
-                <motion.div variants={fadeIn('right', 0.4)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.5 }} className="overflow-x-auto">
-                    <table className="min-w-full bg-white">
-                        <thead>
-                            <tr>
-                                <th className="py-2">Image</th>
-                                <th className="py-2">Name</th>
-                                <th className="py-2">Author</th>
-                                <th className="py-2 px-2">Category</th>
-                                <th className="py-2">Quantity</th>
-                                <th className="py-2">Rating</th>
-                                <th className="py-2">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filteredBooks.map(book => (
-                                <tr key={book._id}>
-                                    <td className="py-2 pl-4">
-                                        <img src={book.image} alt={book.name} className="h-16 w-16 object-cover pr-2" />
-                                    </td>
-                                    <td className="py-2">{book.name}</td>
-                                    <td className="py-2">{book.authorName}</td>
-                                    <td className="py-2">{book.category}</td>
-                                    <td className="py-2">{book.quantity}</td>
-                                    <td className="py-2">
-                                        <ReactStars count={5} value={book.rating} activeColor="#ffd700" edit={false} isHalf={true} />
-                                        {/* <span className="ml-2 text-sm">{book.rating} / 5</span> */}
-                                    </td>
-                                    <td className="py-2">
-                                        <button onClick={() => handleUpdateClick(book._id)} className="bg-brandSecondary text-white px-4 py-2 rounded hover:bg-brandPrimary">
-                                            Update
-                                        </button>
-                                    </td>
+                <motion.div variants={fadeIn('top', 0.4)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.5 }} className="mx-auto">
+                        <div className="overflow-x-auto w-full">
+                            
+                        <table className="table">
+                            {/* head */}
+                            <thead className='text-base text-neutral font-bold'>
+                                <tr>
+                                    <th>Sl. No</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Quantity</th>
+                                    <th>Rating</th>
+                                    <th>Action</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {filteredBooks.map((book, index) => (
+                                    <tr key={book._id}>
+                                        <th>{index + 1}</th>
+                                        <td>
+                                            <div className="flex items-center gap-3">
+                                                <div className="avatar">
+                                                    <div className="mask mask-squircle h-12 w-12">
+                                                        <img src={book.image} alt={book.name} />
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="font-bold">{book.name}</div>
+                                                    <div className="text-sm opacity-50">{book.authorName}</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>{book.category}</td>
+                                        <td>{book.quantity}</td>
+
+                                        <td>
+                                            <ReactStars count={5} value={book.rating} activeColor="#ffd700" edit={false} isHalf={true} />
+                                            {/* <span className="ml-2 text-sm">{book.rating} / 5</span> */}
+                                        </td>
+                                        <th>
+                                            <button onClick={() => handleUpdateClick(book._id)} className="bg-brandSecondary text-white px-4 py-2 rounded hover:bg-brandPrimary">
+                                                Update
+                                            </button>
+                                        </th>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </motion.div>
             )}
         </div>
