@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div id="footer" className=" bg-neutral text-neutral px-3 pt-20">
+        <div id="footer" className=" bg-[#F1E5E5] text-neutral px-3 pt-10">
             <footer className="footer p-10 container mx-auto lg:flex lg:justify-between items-start gap-10">
                 <nav>
                     <div>
-                        <Link className=" text-brandLight text-3xl font-bold">LibrarySystem</Link>
+                        <Link className=" text-neutral text-3xl font-bold">LibrarySystem</Link>
                     </div>
-                    <div className="text-brandLight space-y-2 mt-2">
+                    <div className="text-neutral space-y-2 mt-2">
                         <p>Location: av. Washington 165, NY CA 54003</p>
                         <p>Phone: +31 85 964 47 25</p>
                         <p>Email: info@yourdomain.com</p>
@@ -31,7 +31,7 @@ const Footer = () => {
                     </div>
                 </nav>
 
-                <nav className="text-brandLight">
+                <nav className="text-neutral">
                     <h6 className="text-2xl font-bold">Useful Links</h6>
                     <Link to="/" className="link link-hover">
                         Home
@@ -54,7 +54,7 @@ const Footer = () => {
                 </nav>
 
                 <form className="text-gray-900">
-                    <h6 className="text-2xl text-brandLight font-bold">Drop a Message</h6>
+                    <h6 className="text-2xl text-neutral font-bold">Drop a Message</h6>
                     <fieldset className="form-control w-80">
                         <label className="label"></label>
                         <form action="https://api.web3forms.com/submit" method="POST" className=" space-y-4">
@@ -63,14 +63,14 @@ const Footer = () => {
                                 <input type="text" name="email" placeholder="username@site.com" className="input input-bordered join-item w-full" />
                             </div>
 
-                            <button type="submit" className="btn text-lg bg-brandPrimary text-brandLight hover:text-gray-900 join-item w-full">
+                            <button type="submit" className="btn text-base bg-brandPrimary text-white hover:text-gray-900 join-item w-full">
                                 Subscribe
                             </button>
                         </form>
                     </fieldset>
                 </form>
             </footer>
-            <div className="text-center text-brandLight p-8 container mt-4 mx-auto border-t">
+            <div className="text-center text-neutral p-8 container mt-4 mx-auto border-t border-gray-300">
                 <p>Copyright © {new Date().getFullYear()} - All right reserved by LibrarySystem</p>
             </div>
         </div>
