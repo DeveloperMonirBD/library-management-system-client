@@ -15,10 +15,10 @@ const About = () => {
                 initial="hidden"
                 whileInView={'show'}
                 viewport={{ once: false, amount: 0.7 }}
-                className="bg-[#F1E5E5] min-h-screen py-10 flex justify-center items-center mb-10">
+                className="bg-[#F1E5E5] min-h-screen py-6 flex justify-center items-center">
                 <div className="container mx-auto px-6 lg:px-12 max-h-[700px] overflow-y-auto">
                     <div className="text-center mb-12">
-                        <h1 className="text-4xl md:text-5xl font-extrabold mb-4">About Me</h1>
+                        <h1 className="text-4xl md:text-5xl font-extrabold mb-2">About Me</h1>
                         <p className="text-base text-gray-200">Discover more about my journey, skills, and projects.</p>
                     </div>
                     <div className="bg-white rounded-lg shadow-lg p-8 transform transition duration-500 hover:scale-105">
@@ -61,8 +61,8 @@ const About = () => {
                         </div>
                     </div>
                     <div className="text-center mt-12">
-                        <h2 className="text-3xl font-semibold text-white mb-4">Connect with Me</h2>
-                        <div className="flex justify-center space-x-6 text-3xl md:text-4xl text-white">
+                        <h2 className="text-3xl font-semibold mb-4">Connect with Me</h2>
+                        <div className="flex justify-center space-x-6 text-3xl md:text-4xl">
                             <Link href="https://github.com/DeveloperMonirBD" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
                                 <FaGithub />
                             </Link>
