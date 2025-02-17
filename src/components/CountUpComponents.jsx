@@ -22,25 +22,25 @@ const CountUpComponent = () => {
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div className="bg-white shadow-lg p-10 rounded-lg">
                         <h3 className="text-3xl font-semibold mb-3 text-gray-800">Novel</h3>
-                        <p className="text-4xl font-bold text-blue-500">
+                        <p className="text-3xl font-bold text-blue-500">
                             <CountUp end={55} duration={3} />
                         </p>
                     </div>
                     <div className="bg-white shadow-lg p-10 rounded-lg">
                         <h3 className="text-3xl font-semibold mb-3 text-gray-800">Drama</h3>
-                        <p className="text-4xl font-bold text-green-500">
+                        <p className="text-3xl font-bold text-green-500">
                             <CountUp end={40} duration={3} />
                         </p>
                     </div>
                     <div className="bg-white shadow-lg p-10 rounded-lg">
                         <h3 className="text-3xl font-semibold mb-3 text-gray-800">History</h3>
-                        <p className="text-4xl font-bold text-red-500">
+                        <p className="text-3xl font-bold text-red-500">
                             <CountUp end={150} duration={3} />
                         </p>
                     </div>
                     <div className="bg-white shadow-lg p-10 rounded-lg">
-                        <h3 className="text-3xl font-semibold mb-3 text-gray-800">Tutorials</h3>
-                        <p className="text-4xl font-bold text-purple-500">
+                        <h3 className="text-3xl font-semibold mb-3 text-gray-800">Sci-Fi</h3>
+                        <p className="text-3xl font-bold text-purple-500">
                             <CountUp end={50} duration={3} />
                         </p>
                     </div>
