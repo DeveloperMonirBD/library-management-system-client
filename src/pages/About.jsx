@@ -19,7 +19,7 @@ const About = () => {
                 <div className="container mx-auto px-6 lg:px-12 max-h-[700px] overflow-y-auto">
                     <div className="text-center mb-12">
                         <h1 className="text-4xl md:text-5xl font-extrabold mb-2">About Me</h1>
-                        <p className="text-base text-gray-200">Discover more about my journey, skills, and projects.</p>
+                        <p className="text-base">Discover more about my journey, skills, and projects.</p>
                     </div>
                     <div className="bg-white rounded-lg shadow-lg p-8 transform transition duration-500 hover:scale-105">
                         <div className="mb-6">
