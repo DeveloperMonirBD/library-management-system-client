@@ -1,10 +1,10 @@
 //motion
 import { motion } from 'framer-motion';
 //variants
-import { fadeIn } from '../variants';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import PageTitle from '../components/PageTitle';
+import { fadeIn } from '../variants';
 
 const About = () => {
     return (
@@ -32,24 +32,99 @@ const About = () => {
                         <div className="mb-6">
                             <h2 className="text-xl md:text-3xl font-bold text-gray-800 mb-4">My Skills</h2>
                             <p className="text-gray-600 text-base">
-                                I have a diverse set of skills, ranging from front-end development using React, Tailwind CSS and JavaScript, to back-end development with Node.js, Express, and
-                                MongoDB. I am also proficient in using Firebase for authentication and database management.
+                                I have a diverse set of skills, ranging from front-end development using React, Tailwind CSS and JavaScript, to back-end development with Node.js, Express, and MongoDB.
+                                I am also proficient in using Firebase for authentication and database management.
                             </p>
                         </div>
                         <div className="mb-6">
                             <h2 className="text-xl md:text-3xl font-bold text-gray-800 mb-4">Other Projects</h2>
                             <p className="text-gray-600 text-base mb-4">Here are some of the projects I have worked on:</p>
                             <ul className="list-disc list-inside text-gray-600 text-base mb-6">
+                                {/* project-1 */}
                                 <li className="mb-2">
-                                    <strong> <Link className='text-blue-400' to="https://tourism-management-syste-24ab2.web.app/">Project 1</Link>:</strong> The Tourist Guide site is an online platform designed to be a comprehensive resource for travelers. It provides detailed information on popular destinations in Bangladesh, helping users plan their trips effectively.
+                                    <div className="flex justify-between">
+                                        <strong>
+                                            {' '}
+                                            <Link className="text-blue-400" to="https://tourism-management-syste-24ab2.web.app/">
+                                                Project 1:- Tourism Management System
+                                            </Link>
+                                        </strong>
+
+                                        <div className="flex justify-center gap-8 pb-2 px-6">
+                                            <Link className="text-blue-400 underline" to="https://tourism-management-syste-24ab2.web.app/">
+                                                Live link
+                                            </Link>
+                                            <Link className="text-blue-400 underline" to="https://github.com/DeveloperMonirBD/tourism-management-system-client">
+                                                Client Side
+                                            </Link>
+                                            <Link className="text-blue-400 underline" to="https://github.com/DeveloperMonirBD/tourism-management-system-server">
+                                                Server Side
+                                            </Link>
+                                        </div>
+                                    </div>
+
+                                    <p>
+                                        <strong>Description: </strong>The Tourist Guide site is an online platform designed to be a comprehensive resource for travelers. It provides detailed
+                                        information on popular destinations in Bangladesh, helping users plan their trips effectively.
+                                    </p>
                                 </li>
+
+                                {/* project-2  */}
                                 <li className="mb-2">
-                                    <strong> <Link className='text-blue-400' to="https://visa-navigator-bb0c9.web.app/">Project 2:</Link></strong> An Visa Navigator Portal is a user-friendly platform designed to simplify the process of checking visa requirements, applying for visas, and tracking visa applications. The portal offers a seamless user experience with a dynamic interface, robust authentication, and responsive design, making it easy for users to navigate through visa information and manage their applications.
+                                    <div className="flex justify-between">
+                                        <strong>
+                                            {' '}
+                                            <Link className="text-blue-400" to="https://visa-navigator-bb0c9.web.app/">
+                                                Project 2:- Visa Navigator Portal
+                                            </Link>
+                                        </strong>
+
+                                        <div className="flex justify-center gap-8 pb-2 px-6">
+                                            <Link className="text-blue-400 underline" to="https://visa-navigator-bb0c9.web.app/">
+                                                Live link
+                                            </Link>
+                                            <Link className="text-blue-400 underline" to="https://github.com/DeveloperMonirBD/visa-navigator-client-side">
+                                                Client Side
+                                            </Link>
+                                            <Link className="text-blue-400 underline" to="https://github.com/DeveloperMonirBD/visa-navigator-server-side">
+                                                Server Side
+                                            </Link>
+                                        </div>
+                                    </div>
+
+                                    <p>
+                                        <strong>Description: </strong>Visa Navigator Portal is a user-friendly platform designed to simplify the process of checking visa requirements, applying for
+                                        visas, and tracking visa applications. The portal offers a seamless user experience with a dynamic interface, robust authentication, and responsive design,
+                                        making it easy for users to navigate through visa information and manage their applications.
+                                    </p>
                                 </li>
+
+                                {/* project 3 */}
                                 <li className="mb-2">
-                                    <strong> <Link className='text-blue-400' to="https://lingo-bingo-a69cd.web.app/">Project 3:</Link></strong> Vocabulary Pronunciation is a web application designed to enhance language learning by providing users with the ability to hear the pronunciation of vocabulary words. Users can click on vocabulary cards to listen to the pronunciation and view additional information about each word. This project utilizes the Web Speech API for text-to-speech functionality.
+                                    <div className="flex justify-between">
+                                        <strong>
+                                            {' '}
+                                            <Link className="text-blue-400" to="https://lingo-bingo-a69cd.web.app/">
+                                                Project 3:- A Vocabulary Learning Application
+                                            </Link>
+                                        </strong>
+
+                                        <div className="flex justify-center gap-8 pb-2 px-6">
+                                            <Link className="text-blue-400 underline" to="https://lingo-bingo-a69cd.web.app/">
+                                                Live link
+                                            </Link>
+                                            <Link className="text-blue-400 underline" to="https://github.com/DeveloperMonirBD/authentication-lingo-bingo-project">
+                                                Client Side
+                                            </Link>
+                                        </div>
+                                    </div>
+
+                                    <p>
+                                        <strong>Description: </strong>Vocabulary Pronunciation is a web application designed to enhance language learning by providing users with the ability to hear
+                                        the pronunciation of vocabulary words. Users can click on vocabulary cards to listen to the pronunciation and view additional information about each word. This
+                                        project utilizes the Web Speech API for text-to-speech functionality.
+                                    </p>
                                 </li>
-                               
                             </ul>
                             <p className="text-gray-600 text-base">
                                 Feel free to explore my
