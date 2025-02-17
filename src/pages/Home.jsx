@@ -1,5 +1,6 @@
 import Carousel from '../components/Carousel';
 import ContactSection from '../components/ContactSection';
+import CountUpComponent from '../components/CountUpComponents';
 import EnhanceKnowledge from '../components/EnhanceKnowledge';
 import PageTitle from '../components/PageTitle';
 import UpcomingEvents from '../components/UpcomingEvents';
@@ -13,6 +14,7 @@ const Home = () => {
 
             <Carousel />
             <BookCategories />
+            <CountUpComponent />
             <UpcomingEvents />
             <EnhanceKnowledge />
             <ContactSection />
