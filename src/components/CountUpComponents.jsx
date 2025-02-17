@@ -11,7 +11,7 @@ const CountUpComponent = () => {
         <div className="container mx-auto bg-gray-100 py-12 mt-20 rounded-tr-none rounded-tl-[100px] rounded-br-[100px] rounded-bl-none shadow-md">
             <div className="px-8 pb-4 text-center">
                 <motion.h2 variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="text-4xl font-bold mb-14 text-brandPrimary">
-                    Our Book Collections
+                    Our Books Collection
                 </motion.h2>
 
                 <motion.div
